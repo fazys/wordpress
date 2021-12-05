@@ -1,0 +1,21 @@
+After downloading owl carasoul, we will need two thing to run it properly:
+
+1- Open the "Dist" folder and copy the minified javaScript file of owl Carasoul with the name "owl.carousel.min"
+2- In the same "dist" folder there will a folder with the name "assets", copy that too.
+
+**These are things are required.
+
+
+
+
+Registering the stylesheet of owl carasoul
+
+
+
+Registering the javaScript of owl carasoul
+
+Enqueue the stylesheet of Owl Carasoul
+Enqueue the javaScript of Owl Carasoul
+
+
+Action Hook to load & intialize
