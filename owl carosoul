@@ -3,7 +3,7 @@ After downloading owl carasoul, we will need two thing to run it properly:
 1- Open the "Dist" folder and copy the minified javaScript file of owl Carasoul with the name "owl.carousel.min"
 2- In the same "dist" folder there will a folder with the name "assets", copy that too.
 
-**These are things are required.
+**These are things are required. Copy that and place somewhere in your theme.
 
 
 
