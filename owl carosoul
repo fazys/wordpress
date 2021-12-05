@@ -4,18 +4,48 @@ After downloading owl carasoul, we will need two thing to run it properly:
 2- In the same "dist" folder there will a folder with the name "assets", copy that too.
 
 **These are things required for a normal carousel. Copy that and place somewhere in your theme.
+*** CSS file should be included before JS file and second important thing is to include the jQuery before including the js file of owl carousel.
+
+// Enqueuing the scripts, stylesheets & CDNs
+
+if(!function_exists('vhs_enqueue_the_scripts')){
+	
+	function vhs_enqueue_the_scripts(){
+		
+	// Registering all the CSS files
+		// Registering Owl Carousel Stylesheet Minified version
+		wp_register_style('owl-stylesheet',get_stylesheet_directory_uri().'/inc/owl/assets/owl.carousel.min.css', [], filemtime(get_stylesheet_directory_uri().'/inc/owl/assets/owl.carousel.min.css'),"all");
 
 
+	// Enqueuing all the CSS files below:
+		// Enqueueing the owl carousel stylesheet -- minified version
+		wp_enqueue_style('owl-stylesheet');
+    
+	// -----------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------------
+  
+	// Registering the javaScript / jQuery files
+		// Owl Carousel javaScript Minified version
+		wp_register_script('owl-script', get_stylesheet_directory_uri().'/inc/owl/owl.carousel.min.js', ['jquery'], filemtime(get_stylesheet_directory_uri().'/inc/owl/owl.carousel.min.js'), false);
+
+		// Custom javaScript file to manipulate DOM elements included in footer
+		wp_register_script('app-script', get_stylesheet_directory_uri().'/inc/js/app.js', ['jquery', 'owl-script'], filemtime(get_stylesheet_directory_uri().'/inc/js/app.js'), true);
 
 
-Registering the stylesheet of owl carasoul
+	// Enqueue the javaScript files below:
+		// Enqueuing the jquery
+		wp_enqueue_script('jquery');
 
+		// Enqueuing owl carousel javaScript -- minified version
+		wp_enqueue_script('owl-script');
 
+		// Enqueuing the custom javaScript file to manipulate DOM elements and its included in footer
+		wp_enqueue_script('app-script');
 
-Registering the javaScript of owl carasoul
+	}
+	
+	add_action("wp_enqueue_scripts", "vhs_enqueue_the_scripts");
+}
 
-Enqueue the stylesheet of Owl Carasoul
-Enqueue the javaScript of Owl Carasoul
-
-
-Action Hook to load & intialize
