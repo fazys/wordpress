@@ -6,6 +6,7 @@ After downloading owl carasoul, we will need two thing to run it properly:
 **These are things required for a normal carousel. Copy that and place somewhere in your theme.
 *** CSS file should be included before JS file and second important thing is to include the jQuery before including the js file of owl carousel.
 
+
 // Enqueuing the scripts, stylesheets & CDNs
 
 if(!function_exists('vhs_enqueue_the_scripts')){
@@ -17,15 +18,18 @@ if(!function_exists('vhs_enqueue_the_scripts')){
 		wp_register_style('owl-stylesheet',get_stylesheet_directory_uri().'/inc/owl/assets/owl.carousel.min.css', [], filemtime(get_stylesheet_directory_uri().'/inc/owl/assets/owl.carousel.min.css'),"all");
 
 
+
 	// Enqueuing all the CSS files below:
 		// Enqueueing the owl carousel stylesheet -- minified version
 		wp_enqueue_style('owl-stylesheet');
-    
+
+	
 	// -----------------------------------------------------------------------------------------------------------------------
 	// -----------------------------------------------------------------------------------------------------------------------
 	// -----------------------------------------------------------------------------------------------------------------------
 	// -----------------------------------------------------------------------------------------------------------------------
-  
+
+
 	// Registering the javaScript / jQuery files
 		// Owl Carousel javaScript Minified version
 		wp_register_script('owl-script', get_stylesheet_directory_uri().'/inc/owl/owl.carousel.min.js', ['jquery'], filemtime(get_stylesheet_directory_uri().'/inc/owl/owl.carousel.min.js'), false);
@@ -48,4 +52,87 @@ if(!function_exists('vhs_enqueue_the_scripts')){
 	
 	add_action("wp_enqueue_scripts", "vhs_enqueue_the_scripts");
 }
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 
+THE JS PART
+
+
+jQuery(document).ready(function(){
+	
+ jQuery('.owl-carousel').owlCarousel({
+	loop:true,
+	autoplay:true,
+
+	autoplayTimeout:1000,
+
+    margin:10,
+	mouseDrag:true,
+    nav:true,
+	animateIn:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+	
+});
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+THE HTML PART
+
+<div class="owl-carousel owl-theme">
+    <div class="item"><h4>1</h4></div>
+    <div class="item"><h4>2</h4></div>
+    <div class="item"><h4>3</h4></div>
+    <div class="item"><h4>4</h4></div>
+    <div class="item"><h4>5</h4></div>
+    <div class="item"><h4>6</h4></div>
+    <div class="item"><h4>7</h4></div>
+    <div class="item"><h4>8</h4></div>
+    <div class="item"><h4>9</h4></div>
+    <div class="item"><h4>10</h4></div>
+    <div class="item"><h4>11</h4></div>
+    <div class="item"><h4>12</h4></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
